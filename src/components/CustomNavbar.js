@@ -1,0 +1,72 @@
+import React, {Component} from 'react';
+import {Link, NavLink} from 'react-router-dom';
+import Sticky from 'react-stickynode';
+
+class CustomNavbar extends Component {
+    render() {
+        var {mClass, nClass, cClass, slogo, hbtnClass} =this.props;
+        return (
+            <Sticky top={0} innerZ={9999} activeClass="navbar_fixed">
+                <header className="header_area">
+                <nav className={`navbar navbar-expand-lg menu_one ${mClass}`}>
+                    <div className={`container ${cClass}`}>
+                        <Link className={`navbar-brand ${slogo}`} to="/">
+                            <img src={require("../img/logo2.png")} alt=""/>
+                            <img src={require("../img/logo.png")} alt="logo"/>
+                        </Link>
+                        <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="menu_toggle">
+                                <span className="hamburger">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                                <span className="hamburger-cross">
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                            </span>
+                        </button>
+
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className={`navbar-nav menu ml-auto ${nClass}`}>
+                                <li className="nav-item dropdown submenu mega_menu mega_menu_two">
+                                    <Link to="/homechat" className="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        HOME
+                                    </Link>
+                                </li>
+                                <li className="dropdown submenu nav-item">
+                                    <Link to="./" title="Pages" className="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT US</Link>
+                                    <ul role="menu" className=" dropdown-menu">
+                                        <li className="nav-item"><NavLink exact title="About" className="nav-link" to='/About'>WHO ARE WE ?</NavLink></li>
+                                        <li className="nav-item"><NavLink exact title="Team" className="nav-link" to='/Team'>OUR TEAM</NavLink></li>
+                                    </ul>
+                                </li>
+                                <li className="dropdown submenu nav-item">
+                                    <Link to="./" title="Pages" className="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SOLUTIONS</Link>
+                                    <ul role="menu" className=" dropdown-menu">
+                                        <li className="nav-item"><NavLink exact title="Process Wellbeing" className="nav-link" to='/Process_Well'>EMPLOYEE WELLBEING</NavLink></li>
+                                        <li className="nav-item"><NavLink exact title="Process Engagement" className="nav-link" to='/Process_Engage'>EMPLOYEE ENGAGEMENT</NavLink></li>
+                                        <li className="nav-item"><NavLink exact title="Process Insights" className="nav-link" to='/Process_Insights'>EMPLOYEE INSIGHTS</NavLink></li>
+                                    </ul>
+                                </li>
+                                <li className="nav-item"><NavLink exact title="Why Us" className="nav-link" to='/Why_Us'>WHY US ?</NavLink>
+                                </li>
+                                <li className="nav-item"><Link title="Pages" className="dropdown-toggle nav-link" role="button" aria-haspopup="true" aria-expanded="false" to="/Resources">RESOURCES</Link>
+                                </li>
+                                <li className="nav-item"><Link title="Pages" className="dropdown-toggle nav-link" role="button" aria-haspopup="true" aria-expanded="false" to="/Blog">BLOG</Link>
+                                </li>
+                                <li className="nav-item"><NavLink title="Pricing" className="nav-link" to="/Contact">CONTACT US</NavLink></li>
+                            </ul>
+                            <a className={`btn_get btn_hover ${hbtnClass}`} href="#get-app">Schedule A Demo</a>
+                            <a className={`btn_get1 btn_hover1 ${hbtnClass}`} href="#get-app">Login</a>
+                        </div>
+                    </div>
+                </nav>
+                </header>
+            </Sticky>
+        );
+    }
+}
+
+export default CustomNavbar;
